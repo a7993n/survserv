@@ -36,7 +36,7 @@
 						<div class="content-box">
 							<h2>Localisation du serveur</h2>
 							<p>
-								<?php include("position.php"); ?>
+								<?php // include("position.php"); ?>
 </p>
 						</div><!--/.content-box -->
 					</div>
@@ -77,7 +77,7 @@
 						</div><!--/.content-box -->
 				   </div><!--/.span4 -->
 				</div><!--/.row -->
-				<div class="row">
+				<div class="row" style="margin-left:0;">
 					<div class="span4">
 						<div class="content-box">
 							<h2>Mémoire vive</h2>

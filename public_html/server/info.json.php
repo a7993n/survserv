@@ -1,7 +1,7 @@
 <?php
 
 if ($_SERVER['REQUEST_METHOD'] == 'OPTIONS') {
-	header('Access-Control-Allow-Origin: http://movenpick.com');
+	header('Access-Control-Allow-Origin: movenpick.com');
 	header('Access-Control-Allow-Methods: GET');
 	header('Access-Control-Allow-Headers: Content-Type, Authorization, Accept');
 	header('Access-Control-Allow-Credentials: true');
@@ -11,7 +11,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'OPTIONS') {
 
 header('Cache-Control: no-cache');
 header('Content-type: application/json');
-header('Access-Control-Allow-Origin: http://movenpick.com');
+header('Access-Control-Allow-Origin: movenpick.com');
 header('Access-Control-Allow-Methods: GET');
 header('Access-Control-Allow-Credentials: true');
 
@@ -22,13 +22,7 @@ $cpu = Server::getCPUInfo();
 $memory = Server::getMemoryInfo();
 $drive = Server::getDrivesInfo();
 $services = Server::getServicesInfo(array(
-	/*
-		example = array('name'=>'POSTGRES', 'service'=>'postgres', 'process'=>'postgresql', 'command'=>'postgres')
-		name = display name
-		service = name of tcp service to get port via getservbyname()
-		process = name of running process
-		command = optional command name if process runs under different name
-	*/
+	
 	array('name'	=>	'DNS', 		'service'		=>	'domain', 	'process'	=>	'named'),
 	array('name'	=>	'HTTP', 	'service'		=>	'http', 	'process'	=>	'httpd'),
 	array('name'	=>	'HTTPS', 	'service'		=>	'https', 	'process'	=>	'httpd'),

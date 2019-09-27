@@ -1,7 +1,7 @@
 <?php
 
 if ($_SERVER['REQUEST_METHOD'] == 'OPTIONS') {
-	header('Access-Control-Allow-Origin: http://movenpick.com');
+	header('Access-Control-Allow-Origin: movenpick.com');
 	header('Access-Control-Allow-Methods: GET');
 	header('Access-Control-Allow-Headers: Last-Event-ID, Cache-Control, Authorization, Accept');
 	header('Access-Control-Allow-Credentials: true');
@@ -11,13 +11,13 @@ if ($_SERVER['REQUEST_METHOD'] == 'OPTIONS') {
 
 header('Cache-Control: no-cache');
 header('Content-Type: text/event-stream');
-header('Access-Control-Allow-Origin: http://movenpick.com');
+header('Access-Control-Allow-Origin: movenpick.com');
 header('Access-Control-Allow-Methods: GET');
 header('Access-Control-Allow-Credentials: true');
 
 require_once './classes/Server.class.php';
 
-// prevent bufferring
+// compression avec gzip
 if (function_exists('apache_setenv')) {
 	@apache_setenv('no-gzip', 1);
 }
@@ -25,26 +25,19 @@ if (function_exists('apache_setenv')) {
 @ini_set('implicit_flush', 1);
 for ($i = 0; $i < ob_get_level(); $i++) { ob_end_flush(); }
 ob_implicit_flush(1);
-// end
 
-// prevent timeout
+//  limite
 set_time_limit(0);
 // end
 
-// event-stream
+// streaming des infos en temps reel
 while(1) {
 	$uptime = Server::getUpTime();
 	$cpu = Server::getCPUInfo();
 	$memory = Server::getMemoryInfo();
 	$drive = Server::getDrivesInfo();
 	$services = Server::getServicesInfo(array(
-		/*
-			example = array('name'=>'POSTGRES', 'service'=>'postgres', 'process'=>'postgresql', 'command'=>'postgres')
-			name = display name
-			service = name of tcp service to get port via getservbyname()
-			process = name of running process
-			command = optional command name if process runs under different name
-		*/
+	
 		array('name'	=>	'DNS', 		'service'		=>	'domain', 	'process'	=>	'named'),
 		array('name'	=>	'HTTP', 	'service'		=>	'http', 	'process'	=>	'httpd'),
 		array('name'	=>	'HTTPS', 	'service'		=>	'https', 	'process'	=>	'httpd'),
@@ -82,6 +75,5 @@ while(1) {
 	flush();
 	sleep(2);
 }
-// end
 
 ?>
