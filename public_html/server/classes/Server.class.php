@@ -1,65 +1,20 @@
 <?php
-/**
-  * Server
-  * Server information
-  *
-  * @author http://www.e-worksmedia.com
-  * @version 1.0.0
-  *
-  * LICENSE: BSD 3-Clause
-  *
-  * Copyright (c) 2013, e-works media, inc.
-  * All rights reserved.
-  * 
-  * Redistribution and use in source and binary forms,
-  * with or without modification, are permitted provided
-  * that the following conditions are met:
-  * 
-  * -Redistributions of source code must retain the above
-  * copyright notice, this list of conditions and the
-  * following disclaimer.
-  * 
-  * -Redistributions in binary form must reproduce the
-  * above copyright notice, this list of conditions and
-  * the following disclaimer in the documentation and/or
-  * other materials provided with the distribution.
-  * 
-  * -Neither the name of e-works media, inc. nor the names
-  * of its contributors may be used to endorse or promote
-  * products derived from this software without specific
-  * prior written permission.
-  * 
-  * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS
-  * AND CONTRIBUTORS "AS IS" AND ANY EXPRESS OR IMPLIED
-  * WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
-  * WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A
-  * PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL
-  * THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY
-  * DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR
-  * CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO,
-  * PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF
-  * USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
-  * CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT,
-  * STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR
-  * OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
-  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
-  * 
-**/
+
  
 class Server {
 	
 	/**
-	 * __construct
+	 * Constructeur
 	 *
 	 * @return void
 	 * @throws Exception
 	**/
 	public function __construct() {
-		throw new Exception('Server is a static class. No instances can be created.');
+		throw new Exception('Erreur de la creation de l instance.');
 	}
 	
 	/**
-	 * Method for getting server uptime
+	 * Methode streaming du serveur
 	 *
 	 * @return Array
 	**/
@@ -76,7 +31,7 @@ class Server {
 	}
 	
 	/**
-	 * Method for getting cpu information
+	 * Methode info CPU
 	 *
 	 * @return Array
 	**/
@@ -106,7 +61,7 @@ class Server {
 	}
 	
 	/**
-	 * Method for getting memory information
+	 * Methode infos RAM
 	 *
 	 * @return Array
 	**/
@@ -134,7 +89,7 @@ class Server {
 	}
 	
 	/**
-	 * Method for getting hard drive information
+	 * Methode HDD
 	 *
 	 * @return Array
 	**/
@@ -157,10 +112,8 @@ class Server {
 	}
 	
 	/**
-	 * Method for getting services information
+	 * Methode infos des services
 	 *
-	 * @param Array of services to scan ('name'=>'HTTP', 'service'=>'http', 'process'=>'httpd')
-	 * optional: command to grep for, eg ('name'=>'POSTGRES', 'service'=>'postgres', 'process'=>'postgresql', 'command'=>'postgres')
 	 * @return Array
 	**/
 	public function getServicesInfo($services_scan) {
@@ -212,7 +165,7 @@ class Server {
 	}
 	
 	/**
-	 * Method for managing a process's state
+	 * Methode pour la gestion des services
 	 *
 	 * @return boolean
 	**/
@@ -227,7 +180,7 @@ class Server {
 	}
 	
 	/**
-	 * Method for getting software / kernal information
+	 * Methode pour infos du logiciel & kernel du serveur
 	 *
 	 * @return Array
 	**/
@@ -262,10 +215,8 @@ class Server {
 	}
 	
 	/**
-	 * Method for getting a list of domains from $directory
+	 * Methode pour savoire les noms domains du vhosts
 	 *
-	 * @param $directory path to directory containing domains. no trailing slash!
-	 * @param $forbidden array of directory names not to count
 	 * @return Array
 	**/
 	public function getDomainList($directory, $forbidden) {
