@@ -42,7 +42,7 @@ $(document).ready(function(e) {
 		});
 	});
 	/**
-		Listen for events to change load style settings
+		Chargement en style
 	**/
 	$('.load-style a').each(function(index, element) {
 		$(this).click(function(e) {
