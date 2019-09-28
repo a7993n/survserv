@@ -77,7 +77,7 @@
 						</div><!--/.content-box -->
 				   </div><!--/.span4 -->
 				</div><!--/.row -->
-				<div class="row" style="margin-left:0;">
+				<div class="row" >
 					<div class="span4">
 						<div class="content-box">
 							<h2>Mémoire vive</h2>
@@ -130,7 +130,7 @@
 				</div><!--/.content-box -->
 			</div><!--/.span4 -->
 		</div><!--/.row -->
-		<div class="row">
+		<div class="row" style="margin-left:0px;">
 			<div class="span4">
 				<div class="content-box two-rows">
 					<h2>Logiciel</h2>

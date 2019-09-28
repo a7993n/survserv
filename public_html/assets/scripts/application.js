@@ -2,7 +2,7 @@
 var servers = [
 	{
 		name: 'Movenpick',
-		endPoint: 'movenpick.com/server/'
+		endPoint: 'http://movenpick.com/server/'
 	}
 ];
 
@@ -10,25 +10,25 @@ $(document).ready(function(e) {
 	paint();
 	$(window).resize(paint);
 	/**
-		Fill server switchers with available servers
+		Chargement de la listes des serveurs
 	**/
 	for(var i = 0; i < servers.length; i++){
 		$('#server-dropdown').append('<li><a class="server-switcher" data-server="' + servers[i].endPoint + '">' + servers[i].name + '</a></li>');
 		$('#start-server').append('<option value="' + servers[i].endPoint + '">' + servers[i].name + '</option>');
 	}
 	/**
-		Setup ServerStatus
+		Status du serveur
 	**/
 	ServerStatus.useEventStream(false);
 	ServerStatus.setLongPollTimeoutDelay(5000);
-	ServerStatus.setBasicUserPass('BASIC_AUTH_USERNAME', 'BASIC_AUTH_PASSWORD');
+	ServerStatus.setBasicUserPass('px01', '12345');
 	/**
-		Update view to reflect default ServerStatus load settings
+		Chargement au chaud des infos
 	**/
 	$('.load-style a[data-load-style="polling"] input').attr('checked', 'checked');
 	$('.poll-delay a[data-poll-delay="5000"] input').attr('checked', 'checked');
 	/**
-		Listen for events to change server
+		Chargement event server
 	**/
 	$('#start-server').on('change', function(e){
 		if($(this).val() == '') return;
