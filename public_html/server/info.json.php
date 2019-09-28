@@ -1,7 +1,7 @@
 <?php
 
 if ($_SERVER['REQUEST_METHOD'] == 'OPTIONS') {
-	header('Access-Control-Allow-Origin: movenpick.com');
+	header('Access-Control-Allow-Origin: http://movenpick.com');
 	header('Access-Control-Allow-Methods: GET');
 	header('Access-Control-Allow-Headers: Content-Type, Authorization, Accept');
 	header('Access-Control-Allow-Credentials: true');
@@ -11,7 +11,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'OPTIONS') {
 
 header('Cache-Control: no-cache');
 header('Content-type: application/json');
-header('Access-Control-Allow-Origin: movenpick.com');
+header('Access-Control-Allow-Origin: http://movenpick.com');
 header('Access-Control-Allow-Methods: GET');
 header('Access-Control-Allow-Credentials: true');
 

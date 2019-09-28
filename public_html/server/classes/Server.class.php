@@ -10,7 +10,7 @@ class Server {
 	 * @throws Exception
 	**/
 	public function __construct() {
-		throw new Exception('Erreur de la creation de l instance.');
+		throw new Exception('Erreur de la creation de l instance');
 	}
 	
 	/**

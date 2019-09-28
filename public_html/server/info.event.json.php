@@ -1,7 +1,7 @@
 <?php
 
 if ($_SERVER['REQUEST_METHOD'] == 'OPTIONS') {
-	header('Access-Control-Allow-Origin: movenpick.com');
+	header('Access-Control-Allow-Origin: http://movenpick.com');
 	header('Access-Control-Allow-Methods: GET');
 	header('Access-Control-Allow-Headers: Last-Event-ID, Cache-Control, Authorization, Accept');
 	header('Access-Control-Allow-Credentials: true');
@@ -11,7 +11,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'OPTIONS') {
 
 header('Cache-Control: no-cache');
 header('Content-Type: text/event-stream');
-header('Access-Control-Allow-Origin: movenpick.com');
+header('Access-Control-Allow-Origin: http://movenpick.com');
 header('Access-Control-Allow-Methods: GET');
 header('Access-Control-Allow-Credentials: true');
 
@@ -52,7 +52,7 @@ while(1) {
 		array('name'	=>	'SSH', 		'service'		=>	'ssh', 		'process'	=>	'sshd')
 	));
 	$software = Server::getSoftwareInfo();
-	$domains = Server::getDomainList('/var/www/vhosts', array(
+	$domains = Server::getDomainList('/var/www/', array(
 		'awstats',
 		'chroot',
 		'default',
